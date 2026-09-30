@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="claude-code" agent="claude-code-drawio-skill" version="24.7.17" type="device">
+  <diagram name="AWS 三层架构" id="page1">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="vpc" value="VPC 10.0.0.0/16" style="shape=mxgraph.aws4.group;fillColor=none;strokeColor=#AAB7B8;verticalAlign=top;align=left;spacingLeft=10;spacingTop=8;html=1" vertex="1" parent="1">
+          <mxGeometry x="80" y="80" width="780" height="480" as="geometry"/>
+        </mxCell>
+        <mxCell id="user" value="终端用户" style="shape=mxgraph.cisco19.workstation;html=1;fillColor=#CCCCCC;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top" vertex="1" parent="1">
+          <mxGeometry x="40" y="280" width="60" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="cf" value="CloudFront" style="shape=mxgraph.aws4.cloudfront;html=1;fillColor=#8C4FFF;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top" vertex="1" parent="1">
+          <mxGeometry x="160" y="280" width="60" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="alb" value="ALB" style="shape=mxgraph.aws4.application_load_balancer;html=1;fillColor=#F58536;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top" vertex="1" parent="vpc">
+          <mxGeometry x="160" y="200" width="60" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="ec2_a" value="EC2 (AZ-a)" style="shape=mxgraph.aws4.ec2;html=1;fillColor=#F58536;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top" vertex="1" parent="vpc">
+          <mxGeometry x="320" y="120" width="60" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="ec2_b" value="EC2 (AZ-b)" style="shape=mxgraph.aws4.ec2;html=1;fillColor=#F58536;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top" vertex="1" parent="vpc">
+          <mxGeometry x="320" y="280" width="60" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="rds" value="RDS Primary" style="shape=mxgraph.aws4.rds;html=1;fillColor=#2E73B8;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top" vertex="1" parent="vpc">
+          <mxGeometry x="500" y="120" width="60" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="rds_r" value="RDS Replica" style="shape=mxgraph.aws4.rds;html=1;fillColor=#2E73B8;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top" vertex="1" parent="vpc">
+          <mxGeometry x="500" y="280" width="60" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="s3" value="S3 静态资源" style="shape=mxgraph.aws4.s3;html=1;fillColor=#7AA116;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top" vertex="1" parent="vpc">
+          <mxGeometry x="660" y="200" width="60" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_user_cf" value="HTTPS" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=1;fontSize=10" edge="1" parent="1" source="user" target="cf">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_cf_alb" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=1" edge="1" parent="1" source="cf" target="alb">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="270" y="310"/>
+              <mxPoint x="270" y="310"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_cf_s3" value="静态" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=1;fontSize=10;dashed=1" edge="1" parent="1" source="cf" target="s3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="190" y="380"/>
+              <mxPoint x="690" y="380"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_alb_a" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=1" edge="1" parent="vpc" source="alb" target="ec2_a">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="270" y="230"/>
+              <mxPoint x="270" y="150"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_alb_b" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=1" edge="1" parent="vpc" source="alb" target="ec2_b">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="270" y="310"/>
+              <mxPoint x="320" y="310"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_ec2a_rds" value="读写" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=1;fontSize=10" edge="1" parent="vpc" source="ec2_a" target="rds">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_ec2b_replica" value="只读" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=1;fontSize=10" edge="1" parent="vpc" source="ec2_b" target="rds_r">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_rds_replica" value="复制" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=1;fontSize=10;dashed=1" edge="1" parent="vpc" source="rds" target="rds_r">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

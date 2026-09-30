@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "contract_version": {
+      "type": "integer",
+      "const": 2
+    },
+    "icons": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "node_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "product_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "variant_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "asset_relative_path": {
+            "type": "string",
+            "pattern": "^assets/[0-9a-f]{2}/[0-9a-f]{64}\\.svg$"
+          },
+          "selection": {
+            "enum": [
+              "explicit_variant",
+              "user_preference",
+              "catalog_default"
+            ]
+          },
+          "display_name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "match_type": {
+            "enum": [
+              "exact_product",
+              "independent_component",
+              "vendor_svg_reuse"
+            ]
+          },
+          "requested_component": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "name": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "id",
+              "name"
+            ]
+          }
+        },
+        "required": [
+          "node_id",
+          "product_id",
+          "variant_id",
+          "sha256",
+          "asset_relative_path",
+          "selection",
+          "display_name",
+          "match_type"
+        ],
+        "oneOf": [
+          {
+            "properties": {
+              "match_type": {
+                "const": "vendor_svg_reuse"
+              }
+            },
+            "required": [
+              "requested_component"
+            ]
+          },
+          {
+            "properties": {
+              "match_type": {
+                "enum": [
+                  "exact_product",
+                  "independent_component"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "required": [
+    "contract_version",
+    "icons"
+  ]
+}

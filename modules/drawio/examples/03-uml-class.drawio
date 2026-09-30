@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="claude-code" agent="claude-code-drawio-skill" version="24.7.17" type="device">
+  <diagram name="UML 类图" id="page1">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="600" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="C_User" value="User" style="swimlane;fontStyle=1;align=center;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;startSize=26" vertex="1" parent="1">
+          <mxGeometry x="80" y="80" width="200" height="140" as="geometry"/>
+        </mxCell>
+        <mxCell id="C_User_f1" value="+ id: string" style="text;html=1;align=left;spacingLeft=8;strokeColor=#6c8ebf" vertex="1" parent="C_User">
+          <mxGeometry y="26" width="200" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="C_User_f2" value="+ name: string" style="text;html=1;align=left;spacingLeft=8;strokeColor=#6c8ebf" vertex="1" parent="C_User">
+          <mxGeometry y="48" width="200" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="C_User_f3" value="+ login(pw: string): bool" style="text;html=1;align=left;spacingLeft=8;strokeColor=#6c8ebf;fontStyle=2" vertex="1" parent="C_User">
+          <mxGeometry y="70" width="200" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="C_User_f4" value="+ logout(): void" style="text;html=1;align=left;spacingLeft=8;strokeColor=#6c8ebf;fontStyle=2" vertex="1" parent="C_User">
+          <mxGeometry y="92" width="200" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="C_Order" value="Order" style="swimlane;fontStyle=1;align=center;html=1;fillColor=#d5e8d4;strokeColor=#82b366;startSize=26" vertex="1" parent="1">
+          <mxGeometry x="420" y="80" width="200" height="140" as="geometry"/>
+        </mxCell>
+        <mxCell id="C_Order_f1" value="+ orderId: string" style="text;html=1;align=left;spacingLeft=8;strokeColor=#82b366" vertex="1" parent="C_Order">
+          <mxGeometry y="26" width="200" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="C_Order_f2" value="+ total: number" style="text;html=1;align=left;spacingLeft=8;strokeColor=#82b366" vertex="1" parent="C_Order">
+          <mxGeometry y="48" width="200" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="C_Order_f3" value="+ items: OrderItem[]" style="text;html=1;align=left;spacingLeft=8;strokeColor=#82b366" vertex="1" parent="C_Order">
+          <mxGeometry y="70" width="200" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="C_Order_f4" value="+ submit(): void" style="text;html=1;align=left;spacingLeft=8;strokeColor=#82b366;fontStyle=2" vertex="1" parent="C_Order">
+          <mxGeometry y="92" width="200" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="C_OrderItem" value="OrderItem" style="swimlane;fontStyle=1;align=center;html=1;fillColor=#fff2cc;strokeColor=#d6b656;startSize=26" vertex="1" parent="1">
+          <mxGeometry x="420" y="320" width="200" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="C_OrderItem_f1" value="+ sku: string" style="text;html=1;align=left;spacingLeft=8;strokeColor=#d6b656" vertex="1" parent="C_OrderItem">
+          <mxGeometry y="26" width="200" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="C_OrderItem_f2" value="+ qty: number" style="text;html=1;align=left;spacingLeft=8;strokeColor=#d6b656" vertex="1" parent="C_OrderItem">
+          <mxGeometry y="48" width="200" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="C_OrderItem_f3" value="+ price: number" style="text;html=1;align=left;spacingLeft=8;strokeColor=#d6b656" vertex="1" parent="C_OrderItem">
+          <mxGeometry y="70" width="200" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_user_order" value="places" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=open;startArrow=none;fontSize=10" edge="1" parent="1" source="C_User" target="C_Order">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="350" y="150"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_order_item" value="contains" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=diamondThin;startFill=1;startSize=14;endArrow=none;fontSize=10" edge="1" parent="1" source="C_Order" target="C_OrderItem">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

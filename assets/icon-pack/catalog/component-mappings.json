@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "components": [
+    {
+      "id": "opensource/mysql",
+      "name": "MySQL",
+      "aliases": [
+        "mysql"
+      ],
+      "vendor_product_ids": [
+        "aliyun/rds-mysql",
+        "tencent/pack-mysql-70600e589d",
+        "huawei/pack-rds-for-mysql-059e9d75b6",
+        "aws/rds_mysql_instance",
+        "aws/rds_mysql_instance_alt"
+      ],
+      "preferred_svg_product_id": "aliyun/rds-mysql"
+    },
+    {
+      "id": "opensource/redis",
+      "name": "Redis",
+      "aliases": [
+        "redis"
+      ],
+      "vendor_product_ids": [
+        "aliyun/redis",
+        "aws/elasticache_for_redis",
+        "aws/memorydb_for_redis",
+        "tencent/pack-redis-d39fcf1d2c",
+        "huawei/pack-distributed-cache-service-dcs-for-redis-29eb3849df"
+      ],
+      "preferred_svg_product_id": "aliyun/redis"
+    },
+    {
+      "id": "opensource/kafka",
+      "name": "Apache Kafka",
+      "aliases": [
+        "Kafka",
+        "Apache Kafka",
+        "ApacheKafka"
+      ],
+      "vendor_product_ids": [
+        "aliyun/alibabamq-for-apache-kafka",
+        "aws/managed_streaming_for_kafka",
+        "tencent/pack-ckafka-fb5b493f76",
+        "huawei/pack-kafka-cbbf241eeb"
+      ],
+      "preferred_svg_product_id": "aliyun/alibabamq-for-apache-kafka"
+    },
+    {
+      "id": "opensource/elasticsearch",
+      "name": "Elasticsearch",
+      "aliases": [
+        "Elasticsearch",
+        "ElasticSearch",
+        "Elastic Search",
+        "ES"
+      ],
+      "vendor_product_ids": [
+        "aliyun/elasticsearch",
+        "aws/elasticsearch_service",
+        "tencent/pack-elasticsearch-service-4ecdfc348f"
+      ],
+      "preferred_svg_product_id": "aliyun/elasticsearch"
+    }
+  ]
+}

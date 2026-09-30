@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="claude-code" agent="claude-code-drawio-skill" version="24.7.17" type="device">
+  <diagram name="Claude Code 架构" id="page1">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1320" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="Claude Code 架构图" style="text;html=1;align=center;verticalAlign=middle;fontSize=20;fontStyle=1;fontColor=#333333" vertex="1" parent="1">
+          <mxGeometry x="40" y="10" width="1220" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="layer-ui" value="用户交互层 · User Interface" style="rounded=1;html=1;fillColor=#f5f5f5;strokeColor=#999999;strokeWidth=1;verticalAlign=top;align=left;spacingLeft=12;spacingTop=8;fontSize=12;fontStyle=1;fontColor=#666666;dashed=0" vertex="1" parent="1">
+          <mxGeometry x="40" y="50" width="1220" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="ui-cli" value="&lt;b&gt;Terminal CLI&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#666&quot;&gt;命令行交互入口&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="120" y="85" width="240" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="ui-ide" value="&lt;b&gt;IDE 集成&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#666&quot;&gt;VS Code / JetBrains 插件&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="540" y="85" width="240" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="ui-slash" value="&lt;b&gt;Slash Commands&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#666&quot;&gt;/help · /agents · /skills&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="940" y="85" width="240" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="layer-core" value="Agent Loop · 核心引擎" style="rounded=1;html=1;fillColor=#f5f5f5;strokeColor=#999999;strokeWidth=1;verticalAlign=top;align=left;spacingLeft=12;spacingTop=8;fontSize=12;fontStyle=1;fontColor=#666666" vertex="1" parent="1">
+          <mxGeometry x="40" y="190" width="1220" height="160" as="geometry"/>
+        </mxCell>
+        <mxCell id="core-ctx" value="&lt;b&gt;上下文管理&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#666&quot;&gt;Context · 会话历史&lt;br&gt;Token 压缩&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="80" y="230" width="240" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="core-dec" value="&lt;b&gt;工具调用决策&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#666&quot;&gt;Tool Use Decision&lt;br&gt;Agent Reasoning&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=13;strokeWidth=2;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="360" y="230" width="240" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="core-perm" value="&lt;b&gt;权限审批&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#666&quot;&gt;Permission System&lt;br&gt;allow / ask / deny&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="640" y="230" width="240" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="core-mem" value="&lt;b&gt;记忆与配置&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#666&quot;&gt;CLAUDE.md · AGENTS.md&lt;br&gt;settings.json&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="920" y="230" width="300" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="layer-tools" value="工具层 · Tools" style="rounded=1;html=1;fillColor=#f5f5f5;strokeColor=#999999;strokeWidth=1;verticalAlign=top;align=left;spacingLeft=12;spacingTop=8;fontSize=12;fontStyle=1;fontColor=#666666" vertex="1" parent="1">
+          <mxGeometry x="40" y="380" width="820" height="220" as="geometry"/>
+        </mxCell>
+        <mxCell id="t-file" value="&lt;b&gt;File&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#666&quot; size=&quot;1&quot;&gt;Read · Write · Edit&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="60" y="430" width="180" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="t-bash" value="&lt;b&gt;Bash&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#666&quot; size=&quot;1&quot;&gt;Shell 命令执行&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="260" y="430" width="180" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="t-search" value="&lt;b&gt;Search&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#666&quot; size=&quot;1&quot;&gt;Grep · Glob · Find&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="460" y="430" width="180" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="t-web" value="&lt;b&gt;Web&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#666&quot; size=&quot;1&quot;&gt;Fetch · Search&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="660" y="430" width="180" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="t-task" value="&lt;b&gt;Task Agent&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#666&quot; size=&quot;1&quot;&gt;子代理调度&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="60" y="510" width="180" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="t-todo" value="&lt;b&gt;TodoWrite&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#666&quot; size=&quot;1&quot;&gt;任务清单管理&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="260" y="510" width="180" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="t-mcp" value="&lt;b&gt;MCP Tools&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#666&quot; size=&quot;1&quot;&gt;外部协议工具&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="460" y="510" width="180" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="t-skill" value="&lt;b&gt;Skill Invoke&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#666&quot; size=&quot;1&quot;&gt;技能调用&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="660" y="510" width="180" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="layer-model" value="模型层 · Anthropic API" style="rounded=1;html=1;fillColor=#f5f5f5;strokeColor=#999999;strokeWidth=1;verticalAlign=top;align=left;spacingLeft=12;spacingTop=8;fontSize=12;fontStyle=1;fontColor=#666666" vertex="1" parent="1">
+          <mxGeometry x="900" y="380" width="360" height="220" as="geometry"/>
+        </mxCell>
+        <mxCell id="m-sonnet" value="&lt;b&gt;Claude Sonnet 4.5&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#666&quot; size=&quot;1&quot;&gt;默认主模型&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="920" y="430" width="320" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="m-opus" value="&lt;b&gt;Claude Opus / Haiku&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#666&quot; size=&quot;1&quot;&gt;复杂任务 / 轻量任务可切换&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="920" y="510" width="320" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="layer-ext" value="扩展生态 · Extensibility" style="rounded=1;html=1;fillColor=#f5f5f5;strokeColor=#999999;strokeWidth=1;verticalAlign=top;align=left;spacingLeft=12;spacingTop=8;fontSize=12;fontStyle=1;fontColor=#666666" vertex="1" parent="1">
+          <mxGeometry x="40" y="630" width="600" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="e-sub" value="&lt;b&gt;Subagents&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#666&quot; size=&quot;1&quot;&gt;子代理&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="60" y="680" width="130" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="e-skill" value="&lt;b&gt;Skills&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#666&quot; size=&quot;1&quot;&gt;技能&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="210" y="680" width="130" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="e-hook" value="&lt;b&gt;Hooks&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#666&quot; size=&quot;1&quot;&gt;生命周期钩子&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="360" y="680" width="130" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="e-mcp" value="&lt;b&gt;MCP Servers&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#666&quot; size=&quot;1&quot;&gt;外部协议服务&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="500" y="680" width="120" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="layer-ws" value="Workspace · 工作环境" style="rounded=1;html=1;fillColor=#f5f5f5;strokeColor=#999999;strokeWidth=1;verticalAlign=top;align=left;spacingLeft=12;spacingTop=8;fontSize=12;fontStyle=1;fontColor=#666666" vertex="1" parent="1">
+          <mxGeometry x="660" y="630" width="600" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="w-files" value="&lt;b&gt;本地文件&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#666&quot; size=&quot;1&quot;&gt;源码 · 资源&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="680" y="680" width="130" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="w-git" value="&lt;b&gt;Git Repo&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#666&quot; size=&quot;1&quot;&gt;版本仓库&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="830" y="680" width="130" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="w-cm" value="&lt;b&gt;CLAUDE.md&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#666&quot; size=&quot;1&quot;&gt;项目规约&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="980" y="680" width="120" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="w-cfg" value="&lt;b&gt;.claude/&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#666&quot; size=&quot;1&quot;&gt;配置目录&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11" vertex="1" parent="1">
+          <mxGeometry x="1120" y="680" width="120" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#6c8ebf" edge="1" parent="1" source="ui-cli" target="core-dec">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="240" y="170"/>
+              <mxPoint x="480" y="170"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#6c8ebf" edge="1" parent="1" source="ui-ide" target="core-dec">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="660" y="190"/>
+              <mxPoint x="480" y="190"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#6c8ebf" edge="1" parent="1" source="ui-slash" target="core-dec">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1060" y="170"/>
+              <mxPoint x="480" y="170"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e4" value="历史/上下文" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;fontSize=10;startArrow=block;startFill=1;strokeColor=#9673a6" edge="1" parent="1" source="core-ctx" target="core-dec">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="340" y="280"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e5" value="工具调用" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;fontSize=10;strokeColor=#9673a6" edge="1" parent="1" source="core-dec" target="core-perm">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="620" y="280"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e6" value="规约注入" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;fontSize=10;dashed=1;strokeColor=#9673a6" edge="1" parent="1" source="core-mem" target="core-dec">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="900" y="280"/>
+              <mxPoint x="620" y="280"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e7" value="推理 ⇄ 响应" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;startArrow=block;startFill=1;fontSize=11;fontStyle=1;strokeColor=#d6b656;strokeWidth=2" edge="1" parent="1" source="core-dec" target="m-sonnet">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="700" y="280"/>
+              <mxPoint x="700" y="457"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e8" value="授权后执行" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;fontSize=10;strokeColor=#82b366" edge="1" parent="1" source="core-perm" target="t-search">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="760" y="380"/>
+              <mxPoint x="550" y="380"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e9" value="读写" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;fontSize=10;strokeColor=#b85450" edge="1" parent="1" source="t-file" target="w-files">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="150" y="610"/>
+              <mxPoint x="745" y="610"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e10" value="提交" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;fontSize=10;strokeColor=#b85450" edge="1" parent="1" source="t-bash" target="w-git">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="350" y="615"/>
+              <mxPoint x="895" y="615"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;dashed=1;strokeColor=#d79b00" edge="1" parent="1" source="e-sub" target="t-task">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="125" y="620"/>
+              <mxPoint x="150" y="620"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;dashed=1;strokeColor=#d79b00" edge="1" parent="1" source="e-skill" target="t-skill">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="275" y="620"/>
+              <mxPoint x="750" y="620"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;dashed=1;strokeColor=#d79b00" edge="1" parent="1" source="e-mcp" target="t-mcp">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="560" y="640"/>
+              <mxPoint x="550" y="640"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e14" value="拦截事件" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;dashed=1;fontSize=10;strokeColor=#d79b00" edge="1" parent="1" source="e-hook" target="core-perm">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="425" y="610"/>
+              <mxPoint x="760" y="610"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e15" value="项目级配置" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;dashed=1;fontSize=10;strokeColor=#666666" edge="1" parent="1" source="w-cm" target="core-mem">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1040" y="620"/>
+              <mxPoint x="1070" y="620"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

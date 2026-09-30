@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {"title": "订单平台与异步履约", "locale": "zh-CN", "quality_profile": "showcase", "views": [{"id": "sync", "label": "交易主路径", "focus": ["portal", "gateway", "orders", "primary"]}, {"id": "async", "label": "异步履约", "focus": ["orders", "events", "fulfillment", "archive"]}]},
+  "components": [
+    {"id": "portal", "type": "frontend", "label": "商家运营工作台", "sublabel": "订单查询与履约管理", "pos": [40, 120], "size": [240, 84]},
+    {"id": "gateway", "type": "security", "label": "统一身份认证网关", "sublabel": "身份校验与请求限流", "pos": [370, 120], "size": [240, 84]},
+    {"id": "orders", "type": "backend", "label": "订单交易协调服务", "sublabel": "幂等提交与库存预占", "pos": [700, 120], "size": [240, 84]},
+    {"id": "primary", "type": "database", "label": "订单主数据存储", "sublabel": "MySQL · 事务记录", "pos": [1030, 120], "size": [240, 84]},
+    {"id": "events", "type": "messagebus", "label": "订单领域事件队列", "sublabel": "异步投递与消费重试", "pos": [700, 380], "size": [240, 84]},
+    {"id": "fulfillment", "type": "backend", "label": "跨仓履约编排服务", "sublabel": "拆单与配送状态汇总", "pos": [1030, 380], "size": [240, 84]},
+    {"id": "archive", "type": "database", "label": "履约审计记录存储", "sublabel": "MySQL · 独立业务身份", "pos": [1030, 640], "size": [240, 84]}
+  ],
+  "connections": [
+    {"id": "portal-gateway", "from": "portal", "to": "gateway", "label": "HTTPS"},
+    {"id": "gateway-orders", "from": "gateway", "to": "orders", "label": "鉴权请求"},
+    {"id": "orders-primary", "from": "orders", "to": "primary", "label": "事务提交"},
+    {"id": "orders-events", "from": "orders", "to": "events", "label": "领域事件", "labelAt": [850, 292]},
+    {"id": "events-fulfillment", "from": "events", "to": "fulfillment", "label": "消费确认"},
+    {"id": "fulfillment-archive", "from": "fulfillment", "to": "archive", "label": "审计写入", "labelAt": [1180, 552]}
+  ],
+  "boundaries": [
+    {"kind": "security-group", "label": "接入安全域", "wraps": ["portal", "gateway"], "pad": 30},
+    {"kind": "region", "label": "交易与履约服务域", "wraps": ["orders", "primary", "events", "fulfillment", "archive"], "pad": 30}
+  ],
+  "cards": []
+}

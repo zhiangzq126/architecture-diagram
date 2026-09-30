@@ -1,0 +1,446 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/resolved"
+    },
+    {
+      "$ref": "#/$defs/fallback"
+    },
+    {
+      "$ref": "#/$defs/error"
+    },
+    {
+      "$ref": "#/$defs/search"
+    },
+    {
+      "$ref": "#/$defs/show"
+    }
+  ],
+  "$defs": {
+    "resolved": {
+      "type": "object",
+      "properties": {
+        "contract_version": {
+          "type": "integer",
+          "const": 2
+        },
+        "status": {
+          "const": "resolved"
+        },
+        "product_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "provider": {
+          "type": "string",
+          "minLength": 1
+        },
+        "variant_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "style": {
+          "type": "string",
+          "minLength": 1
+        },
+        "asset_path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "asset_relative_path": {
+          "type": "string",
+          "pattern": "^assets/[0-9a-f]{2}/[0-9a-f]{64}\\.svg$"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "representation": {
+          "const": "vector"
+        },
+        "theme": {
+          "type": "object",
+          "properties": {
+            "preserve_colors": {
+              "const": true
+            },
+            "dark_backdrop": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "preserve_colors",
+            "dark_backdrop"
+          ]
+        },
+        "kind": {
+          "enum": [
+            "product",
+            "brand",
+            "component",
+            "container-symbol",
+            "status"
+          ]
+        },
+        "selection": {
+          "enum": [
+            "explicit_variant",
+            "user_preference",
+            "catalog_default"
+          ]
+        },
+        "diagnostic": {
+          "type": "object",
+          "properties": {
+            "code": {
+              "type": "string",
+              "minLength": 1
+            },
+            "message": {
+              "type": "string",
+              "minLength": 1
+            },
+            "action": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "code",
+            "message",
+            "action"
+          ]
+        },
+        "display_name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "match_type": {
+          "enum": [
+            "exact_product",
+            "independent_component",
+            "vendor_svg_reuse"
+          ]
+        },
+        "requested_component": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "name": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "id",
+            "name"
+          ]
+        }
+      },
+      "required": [
+        "contract_version",
+        "status",
+        "product_id",
+        "name",
+        "provider",
+        "variant_id",
+        "style",
+        "asset_path",
+        "asset_relative_path",
+        "sha256",
+        "representation",
+        "theme",
+        "kind",
+        "selection",
+        "diagnostic",
+        "display_name",
+        "match_type"
+      ],
+      "oneOf": [
+        {
+          "properties": {
+            "match_type": {
+              "const": "vendor_svg_reuse"
+            }
+          },
+          "required": [
+            "requested_component"
+          ]
+        },
+        {
+          "properties": {
+            "match_type": {
+              "enum": [
+                "exact_product",
+                "independent_component"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "fallback": {
+      "type": "object",
+      "properties": {
+        "contract_version": {
+          "type": "integer",
+          "const": 2
+        },
+        "status": {
+          "enum": [
+            "no_exact_match",
+            "ambiguous",
+            "pending_review",
+            "needs_provider_context",
+            "unusable_variant",
+            "invalid_variant",
+            "asset_integrity_error",
+            "not_found",
+            "vendor_only"
+          ]
+        },
+        "fallback": {
+          "const": "card"
+        },
+        "candidates": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "name": {
+                "type": "string",
+                "minLength": 1
+              },
+              "provider": {
+                "type": "string",
+                "minLength": 1
+              },
+              "status": {
+                "enum": [
+                  "ready",
+                  "pending"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "provider",
+              "status"
+            ]
+          }
+        },
+        "diagnostic": {
+          "type": "object",
+          "properties": {
+            "code": {
+              "type": "string",
+              "minLength": 1
+            },
+            "message": {
+              "type": "string",
+              "minLength": 1
+            },
+            "action": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "code",
+            "message",
+            "action"
+          ]
+        }
+      },
+      "required": [
+        "contract_version",
+        "status",
+        "fallback",
+        "diagnostic"
+      ]
+    },
+    "error": {
+      "type": "object",
+      "properties": {
+        "contract_version": {
+          "type": "integer",
+          "const": 2
+        },
+        "error": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "contract_version",
+        "error"
+      ]
+    },
+    "search": {
+      "type": "object",
+      "properties": {
+        "contract_version": {
+          "type": "integer",
+          "const": 2
+        },
+        "query": {
+          "type": "string"
+        },
+        "matches": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "name": {
+                "type": "string",
+                "minLength": 1
+              },
+              "provider": {
+                "type": "string",
+                "minLength": 1
+              },
+              "status": {
+                "enum": [
+                  "ready",
+                  "pending"
+                ]
+              },
+              "score": {
+                "type": "integer"
+              },
+              "variant_count": {
+                "type": "integer",
+                "minimum": 0
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "provider",
+              "status",
+              "score",
+              "variant_count"
+            ]
+          }
+        }
+      },
+      "required": [
+        "contract_version",
+        "query",
+        "matches"
+      ]
+    },
+    "show": {
+      "type": "object",
+      "properties": {
+        "contract_version": {
+          "type": "integer",
+          "const": 2
+        },
+        "product": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "name": {
+              "type": "string",
+              "minLength": 1
+            },
+            "provider": {
+              "type": "string",
+              "minLength": 1
+            },
+            "status": {
+              "enum": [
+                "ready",
+                "pending"
+              ]
+            }
+          },
+          "required": [
+            "id",
+            "name",
+            "provider",
+            "status"
+          ]
+        },
+        "variants": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "product_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "status": {
+                "enum": [
+                  "ready",
+                  "pending"
+                ]
+              },
+              "asset": {
+                "type": "object",
+                "properties": {
+                  "path": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sha256": {
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{64}$"
+                  },
+                  "representation": {
+                    "const": "vector"
+                  },
+                  "format": {
+                    "const": "svg"
+                  }
+                },
+                "required": [
+                  "path",
+                  "sha256",
+                  "representation",
+                  "format"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "product_id",
+              "status",
+              "asset"
+            ]
+          }
+        }
+      },
+      "required": [
+        "contract_version",
+        "product",
+        "variants"
+      ]
+    }
+  }
+}

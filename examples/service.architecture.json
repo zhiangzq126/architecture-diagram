@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "业务请求链路",
+    "locale": "zh-CN",
+    "quality_profile": "showcase",
+    "views": [{"id": "request", "label": "请求路径", "focus": ["gateway", "orders", "store"]}]
+  },
+  "components": [
+    {"id": "gateway", "type": "frontend", "label": "接入网关", "sublabel": "Nginx", "pos": [40, 100], "size": [200, 80]},
+    {"id": "orders", "type": "backend", "label": "订单服务", "sublabel": "业务节点保留", "pos": [360, 100], "size": [200, 80]},
+    {"id": "store", "type": "database", "label": "订单数据库", "sublabel": "MySQL", "pos": [680, 100], "size": [200, 80]}
+  ],
+  "connections": [
+    {"id": "gateway-orders", "from": "gateway", "to": "orders", "label": "HTTPS"},
+    {"id": "orders-store", "from": "orders", "to": "store", "label": "SQL"}
+  ],
+  "boundaries": [],
+  "cards": []
+}

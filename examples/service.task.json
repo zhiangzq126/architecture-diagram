@@ -1,0 +1,19 @@
+{
+  "contract_version": 1,
+  "name": "service-demo",
+  "type": "architecture",
+  "targets": [
+    {"format": "html", "source": "service.architecture.json"},
+    {"format": "drawio", "source": "service.drawio", "preview": true}
+  ],
+  "output_dir": "../../../../architecture-diagram-output",
+  "quality": "showcase",
+  "theme": "light",
+  "icons": {
+    "bindings": [
+      {"node_id": "gateway", "query": "Nginx"},
+      {"node_id": "orders", "query": "architecture-diagram-demo-missing-icon"},
+      {"node_id": "store", "query": "MySQL"}
+    ]
+  }
+}

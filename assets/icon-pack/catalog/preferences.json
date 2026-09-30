@@ -1,0 +1,6 @@
+{
+  "schema_version": 1,
+  "defaults": {
+    "tencent/brand": "tencent/brand@download-wordmark-781eeb0fb0"
+  }
+}

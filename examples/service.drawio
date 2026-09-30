@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="architecture-diagram" compressed="false">
+  <diagram name="业务请求链路" id="request">
+    <mxGraphModel grid="1" page="1" pageWidth="960" pageHeight="400" background="#FFFFFF">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="业务请求链路" style="text;html=1;fontSize=24;fontStyle=1;align=left;fontColor=#172B4D" vertex="1" parent="1"><mxGeometry x="40" y="30" width="840" height="40" as="geometry"/></mxCell>
+        <mxCell id="gateway" value="接入网关&lt;br&gt;Nginx" style="rounded=1;html=1;whiteSpace=wrap;spacingRight=44;fillColor=#EFF6FF;strokeColor=#5B7FA5;fontColor=#172B4D;fontSize=18" vertex="1" parent="1"><mxGeometry x="40" y="140" width="200" height="80" as="geometry"/></mxCell>
+        <mxCell id="orders" value="订单服务&lt;br&gt;业务节点保留" style="rounded=1;html=1;whiteSpace=wrap;spacingRight=44;fillColor=#EFF6FF;strokeColor=#5B7FA5;fontColor=#172B4D;fontSize=18" vertex="1" parent="1"><mxGeometry x="360" y="140" width="200" height="80" as="geometry"/></mxCell>
+        <mxCell id="store" value="订单数据库&lt;br&gt;MySQL" style="rounded=1;html=1;whiteSpace=wrap;spacingRight=44;fillColor=#ECFDF5;strokeColor=#40866B;fontColor=#172B4D;fontSize=18" vertex="1" parent="1"><mxGeometry x="680" y="140" width="200" height="80" as="geometry"/></mxCell>
+        <mxCell id="gateway-orders" value="HTTPS" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeColor=#5B7FA5;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.5;entryX=0;entryY=0.5" edge="1" parent="1" source="gateway" target="orders"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="300" y="180"/></Array></mxGeometry></mxCell>
+        <mxCell id="orders-store" value="SQL" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeColor=#5B7FA5;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.5;entryX=0;entryY=0.5" edge="1" parent="1" source="orders" target="store"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="620" y="180"/></Array></mxGeometry></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

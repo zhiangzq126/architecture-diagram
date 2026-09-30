@@ -1,0 +1,224 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "products": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/product"
+      }
+    },
+    "variants": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/variant"
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "products",
+    "variants"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "asset": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "type": "string",
+          "pattern": "^assets/[0-9a-f]{2}/[0-9a-f]{64}\\.svg$"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "format": {
+          "const": "svg"
+        },
+        "representation": {
+          "const": "vector"
+        },
+        "bytes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "viewBox": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 4,
+          "maxItems": 4
+        }
+      },
+      "required": [
+        "path",
+        "sha256",
+        "format",
+        "representation",
+        "bytes",
+        "viewBox"
+      ]
+    },
+    "origin": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "type": "string",
+          "pattern": "^sources/"
+        },
+        "entry": {
+          "type": "string"
+        },
+        "original_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "path",
+        "entry",
+        "original_sha256"
+      ]
+    },
+    "product": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9-]*/[a-z0-9_-]+$"
+        },
+        "provider": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "category": {
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "product",
+            "brand",
+            "component",
+            "container-symbol",
+            "status"
+          ]
+        },
+        "aliases": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "status": {
+          "enum": [
+            "ready",
+            "pending"
+          ]
+        },
+        "identity_basis": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "default_variant": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "provider",
+        "name",
+        "category",
+        "kind",
+        "aliases",
+        "status",
+        "identity_basis",
+        "notes",
+        "default_variant"
+      ]
+    },
+    "variant": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "product_id": {
+          "type": "string"
+        },
+        "style": {
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "ready",
+            "pending"
+          ]
+        },
+        "asset": {
+          "$ref": "#/$defs/asset"
+        },
+        "origins": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/origin"
+          },
+          "minItems": 1
+        },
+        "priority": {
+          "type": "integer"
+        },
+        "theme": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "preserve_colors": {
+              "const": true
+            },
+            "dark_backdrop": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "preserve_colors",
+            "dark_backdrop"
+          ]
+        },
+        "optical_scale": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        }
+      },
+      "required": [
+        "id",
+        "product_id",
+        "style",
+        "status",
+        "asset",
+        "origins",
+        "priority",
+        "theme",
+        "optical_scale"
+      ]
+    }
+  }
+}

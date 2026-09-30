@@ -1,0 +1,52 @@
+{
+  "review_date": "2026-09-22",
+  "scope": "Local packaged evidence review; not a legal opinion or a new license grant",
+  "distribution": "local-private",
+  "redistribution_cleared": false,
+  "components": [
+    {
+      "name": "Archify own code",
+      "evidence": ["modules/archify/LICENSE"],
+      "recorded_license": "MIT",
+      "conditions": ["Retain copyright and permission notices", "Does not replace licenses or trademark rules for third-party assets"]
+    },
+    {
+      "name": "Archify brand marks and embedded font",
+      "evidence": ["modules/archify/THIRD_PARTY_NOTICES.md", "modules/archify/assets/JetBrainsMono-OFL.txt"],
+      "recorded_license": "Mixed asset-specific terms; font SIL-OFL-1.1",
+      "conditions": ["Review each brand's copyright and trademark terms", "Preserve third-party notices and font license"]
+    },
+    {
+      "name": "ai-drawio copied scripts and references",
+      "evidence": ["modules/drawio/package.json"],
+      "recorded_license": null,
+      "status": "Redistribution grant not established by packaged evidence"
+    },
+    {
+      "name": "arch-icons engine and catalog",
+      "upstream_name": "arch-icons",
+      "historical_name": "icon-personal",
+      "evidence": ["assets/icon-pack/catalog/sources.json"],
+      "recorded_license": null,
+      "status": "Local upstream README does not infer authorization for user-provided assets; no new blanket or specific authorization found in this review"
+    },
+    {
+      "name": "DrawIO stencil material in the AWS extraction source",
+      "evidence": ["licenses/icon-sources/aws/drawio-22.1.2/source/stencils/LICENSE"],
+      "recorded_license": "CC-BY-4.0",
+      "conditions": ["Retain supplied attribution, copyright, license, disclaimer and source information", "Indicate modifications", "No added restrictions or implied endorsement", "Trademark rights are not granted", "Does not establish permission for unrelated icon sources"]
+    },
+    {
+      "name": "DrawIO code in the AWS extraction source",
+      "evidence": ["licenses/icon-sources/aws/drawio-22.1.2/source/DRAWIO-CODE-LICENSE"],
+      "recorded_license": "Apache-2.0",
+      "conditions": ["Preserve license and applicable notices", "Identify modified files when distributing", "Not a blanket license for all icon artwork or trademarks"]
+    }
+  ],
+  "open_items": [
+    "Locate the user's updated arch-icons authorization and confirm its exact code and asset scope",
+    "Confirm redistribution permission for copied ai-drawio material",
+    "Review third-party attribution and modification notices for the chosen distribution scope"
+  ],
+  "interpretation": "Missing permission evidence is not a statement that every use is prohibited; do not claim whole-package redistribution clearance. Icon ready/resolved and SVG safety validation are not license clearance."
+}
